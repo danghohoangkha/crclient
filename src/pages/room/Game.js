@@ -122,7 +122,7 @@ const Game = ({handleSetPlayer2ObjParent, getNewHistory, match, setHistoryClick,
 
   return (
     <>
-      {showTimer ? <Timer time={{ initialMinute: 10, initialSeconds: 10 }} onfinishTime={onfinishTime} /> : <div style={{height:"30px"}}></div>}
+      {showTimer ? <Timer time={{ initialMinute: 2, initialSeconds: 0 }} onfinishTime={onfinishTime} /> : <div style={{height:"30px"}}></div>}
       <div className="game">
         {/* <div>{status}</div> */}
         <div className="game-board">
@@ -136,9 +136,7 @@ const Game = ({handleSetPlayer2ObjParent, getNewHistory, match, setHistoryClick,
             />}
 
         </div>
-        <div className="game-info">
-          <Button className={isEnd ? "" : "d-none"} onClick={setHistoryClick(history, isEnd)}>Hiển thị lịch sử</Button>
-        </div>
+        
       </div>
     </>
   );

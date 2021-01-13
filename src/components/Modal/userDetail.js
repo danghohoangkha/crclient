@@ -6,9 +6,15 @@ import Paper from "@material-ui/core/Paper";
 import Avatar from "@material-ui/core/Avatar";
 import { makeStyles } from "@material-ui/core/styles";
 import GAMER from "../../icon/img022.jpg";
+import api from "./../../callapi/index"
 function UserDetail({user, showInfo, handleCloseInfo}){
     const classes = useStyles();
     
+    // useEffect(()=>{
+    //     const fecthData = async ()=>{
+    //         await api.get("/api/getUserWithId/:id");
+    //     }
+    // },[user])
     return(
         <> {user? 
         <Modal show={showInfo} onHide={handleCloseInfo} animation={false} centered>
@@ -46,7 +52,7 @@ function UserDetail({user, showInfo, handleCloseInfo}){
                         </Grid>
                         <Grid item xs={4} style={{fontSize: "20px", fontWeight: "bold",}}>
                             Tỉ lệ: &nbsp;
-                            {Math.round(user.winMatch/(user.winMatch + user.drawMatch + user.loseMatch) * 100)}%
+                            {user.rating}%
                         </Grid>
                     </Grid>
                 </div>
@@ -54,9 +60,9 @@ function UserDetail({user, showInfo, handleCloseInfo}){
                 <div class="contentCenter">
                     <Grid container xs={12}>
                     <Grid item xs={1}></Grid>
-                        <Grid item xs={7} style={{fontSize: "20px", fontWeight: "bold",}}>
+                        <Grid item xs={11} style={{fontSize: "20px", fontWeight: "bold",}}>
                         Tham gia:&nbsp;
-                         {user.createDate}
+                         {user.createdDate?user.createdDate.substring(0,10): ''}
                         </Grid>
                     </Grid>
                 </div>
