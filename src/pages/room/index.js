@@ -297,7 +297,7 @@ function Chess({ match, location }) {
                     </Grid>
 
                     {/* EndGame */}
-                    <EndGame endGame={messageMatch && endGame ? endGame : false} handleContinue={handleContinue} handleCancel={handleCancel} messageMatch={messageMatch} />
+                    <EndGame endGame={endGame} handleContinue={handleContinue} handleCancel={handleCancel} messageMatch={messageMatch} />
                 </Grid>
                 <Grid xs={3}>
                     <PlayerList player2={player2} player1={player1} onInChess={onInChess} />
